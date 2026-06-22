@@ -4,7 +4,7 @@
 - MAYDELEINE SAMIRA SANCHEZ MONROY
 - SHEYLA ARLETTE TUMBACO MORÁN
 # Estado
-Semana 2 - estructura base
+Semana 2 - Estructura base
 12/06/26
 Hoy nos reunimos y organizamos nuestro proyecto de la siguiente manera:
 Decidimos hablar primero acerca sobre lo que haremos de proyecto, que en nuestro caso será sobre una automatización de gestión de procesos, en el cual implementaremos todo de acuerdo a la 
@@ -35,6 +35,124 @@ Estas dos estructuras serán nuestro punto clave para poder realizar nuestra aut
 Hasta ahora es todo lo que tenemos para esta semana, vamos a hacer pruebas para nuesto programa, ver las posibles soluciones y fallas y ayudandonos mutuamente si se nos complica entender 
 algo, aunque las dos partes de las estructuras será un reto para nosotras, haremos lo posible para que nuestro programa funcione completamente.
 
+Semana 3 - Elaboración de Definciones del Proyecto
+15/06/26
+Esta semana nos enfocamos en crear nuestros Objetivos generales, específicos y los requerimientos de nuestro proyecto. Esta fue una tarea asignada por nuestro docente y se realizó de manera individual. 
+Cada una describió cada punto requerido para el proyecto en base a nuestro diagrama.
+Esta fue una de las formas en la que se describió los puntos:
 
+Objetivo general: Desarrollar un sistema para gestionar procesos logísticos y de coherencia, optimizando el flujo de trabajo y mejorando la coordinación entre los participantes.
 
+Objetivos específicos:
 
+· Registrar estudiantes con nombre, correo e identificación
+· Consultar, buscar, actualizar y eliminar estudiantes
+· Generar parejas o grupos de manera aleatoria
+· Reorganizar grupos automáticamente
+· Registrar fechas importantes
+· Gestionar tareas y actividades asignadas a grupos
+· Consultar historial de asignaciones
+· Comparar resultados entre actividades
+· Calcular estadísticas básicas
+· Menú interactivo con while True
+· Validar datos ingresados
+· Generar reportes
+· Actualizar información sin reiniciar
+· Registrar fecha y hora automáticamente
+
+Requerimientos funcionales (30 en total):
+
+· Gestión de estudiantes: registrar, consultar, buscar, actualizar, eliminar
+· Gestión de grupos: generar parejas, crear grupos, evitar duplicados, consultar, reorganizar
+· Gestión de actividades: registrar, asignar a grupos, consultar pendientes, marcar completadas, registrar observaciones
+· Gestión de fechas: registrar, consultar próximas, validar, mostrar por fecha, registrar automáticamente
+· Menú y validación: while True, múltiples operaciones, validar opciones, try/except
+· Reportes: generar reportes, historial, comparar resultados, estadísticas, resumen general
+
+Cuando empezamos a planificar el proyecto, leímos la rúbrica y pensamos que el proyecto iba a ser sobre registrar estudiantes con correo, identificación y gestionar actividades, con esa idea empezamos a trabajar.
+
+Pero después, cuando nos pusimos a hacer el código, nos dimos cuenta de que muchas de esas cosas no las habíamos visto en clase y que sería muy complicado. Entonces volvimos a leer bien la rúbrica y vimos que en realidad el proyecto era más sencillo: solo había que hacer un sistema de comparación de notas entre evaluadores y asignación de parejas.
+
+Sin embargo, aunque parecía más sencillo, también tuvimos dificultades porque agregamos varias líneas de código que no habíamos visto en clase, como import random, random.shuffle(), while True. Tuvimos que investigar por nuestra cuenta para poder implementarlas y que el programa funcionara correctamente, ya que de esta manera estas líneas de código al momento de investigar nos dimos cuenta de que era clave para generar la automatización. 
+
+Nos dimos cuenta de que habíamos malinterpretado la tarea al principio, pero con esfuerzo y buscando información adicional logramos modificar nuestro código a tiempo.
+
+Nuestros objetivos y requerimientos quedaron de la siguiente manera:
+
+OBJETIVO PRINCIPAL
+
+Crear un sistema automatizado para la gestión de evaluaciones docentes que permita:
+
+· Asignar pares aleatorios para coevaluación
+· Verificar la coherencia entre diferentes evaluadores
+· Calcular promedios
+· Mostrar un cronograma de entregas. Todo a través de un menú interactivo que se repita hasta que el usuario decida salir
+
+---
+
+OBJETIVOS ESPECÍFICOS
+
+1. Gestión de Datos Básicos
+
+· Mantener un catálogo de estudiantes con sus nombres
+· Administrar las notas de cada estudiante provenientes de 3 evaluadores (Profesor 1, Profesor 2 y Autoevaluación)
+· Almacenar las fechas de entrega de las evaluaciones
+
+---
+
+2. Gestión de Evaluaciones
+
+· Registrar 3 notas por estudiante (Profesor 1, Profesor 2 y Autoevaluación)
+· Comparar las notas de los diferentes evaluadores para detectar discrepancias
+· Calcular automáticamente la diferencia emn porcentaje entre la nota más alta y la más baja
+· Establecer el 20% para determinar si los evaluadores están de acuerdo
+· Calcular la nota final: 40% Profesor 1, 40% Profesor 2, 20% Autoevaluación
+
+---
+
+3. Gestión de Coherencia
+
+· Detectar automáticamente si los evaluadores están de acuerdo
+· Identificar desaacuerdos mayores al 20% entre evaluadores
+· Mostrar mensajes claros sobre el estado de la coherencia
+
+---
+
+4. Gestión de Coevaluación
+
+· Asignar aleatoriamente pares de estudiantes para coevaluación
+· Mostrar las parejas asignadas claramente
+· Asegurar que ningún estudiante quede sin par (mostrar "Sin par" cuando corresponda)
+
+---
+
+5. Gestión de Tiempos
+
+· Mostrar un cronograma claro de las fechas de entrega
+· Presentar las fechas de forma ordenada y visual
+
+---
+
+6. Interfaz de Usuario
+
+· Proporcionar un menú interactivo con opciones claras
+· Mantener el menú activo hasta que el usuario decida salir
+· Validar las opciones ingresadas por el usuario
+· Mostrar mensajes de error para opciones inválidas
+
+---
+
+7. Arquitectura del Sistema
+
+· Organizar el código en 3 capas:
+  · Capa 1: Datos (estudiantes, evaluaciones)
+  · Capa 2: Lógica (funciones de procesamiento)
+  · Capa 3: Interfaz (menú interactivo)
+· Mantener el código limpio y estructurado
+
+---
+Semana 4 - Prototipo de Capa 1 y 2 sin LLM. Código que carga datos y ejecuta la lógica central (versión mosk)
+19/06 - 22/06
+Entre estás fechas nos dedicamos a agregar la capa 1 y 2 en nuestro código de automatización, luego de corregir nuestro error empezamos desde 0.
+En la capa 1 se muestran los datos, se utilizó lista para agregar los nombres de cada estudiante, elegimos 5 estudiantes.
+También agregamos un diccionario para poner las calificaciones que se requieren de acuerdo a las indicaciones de nuestro proyecto, que son nota_profesor1, nota_profesor2, autoevaluacion 
