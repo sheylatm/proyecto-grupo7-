@@ -154,5 +154,15 @@ OBJETIVOS ESPECÍFICOS
 Semana 4 - Prototipo de Capa 1 y 2 sin LLM. Código que carga datos y ejecuta la lógica central (versión mosk)
 19/06 - 22/06
 Entre estás fechas nos dedicamos a agregar la capa 1 y 2 en nuestro código de automatización, luego de corregir nuestro error empezamos desde 0.
-En la capa 1 se muestran los datos, se utilizó lista para agregar los nombres de cada estudiante, elegimos 5 estudiantes.
-También agregamos un diccionario para poner las calificaciones que se requieren de acuerdo a las indicaciones de nuestro proyecto, que son nota_profesor1, nota_profesor2, autoevaluacion 
+CAPA 1: Se muestran los datos, se utilizó lista para agregar los nombres de cada estudiante, elegimos 5 estudiantes.
+También agregamos un diccionario para poner las calificaciones que se requieren de acuerdo a las indicaciones de nuestro proyecto, que son nota_profesor1, nota_profesor2, autoevaluacion.
+CAPA 2: Utilizamos def para crear nuestras funciones, creamos la línea de código def asignar_pares():
+Esto significa que la función recibe una lista de estudiantes como variables, en donde debajo se colocará:
+pares = [] 
+Que servirá para almacenar los pares de estudiantes.
+Debajo de esta sigue cantidaad = len(lista), nos ayudará a obtener la cantidad de estudiantes en nuestra lista.
+Procedemos con la función for i in range, esta función va ayudarnos a recorrer nuestra lista de estudiantes en dos en dos, de manera par.
+Entonces quedaría for i in range(0, cantidad, 2):
+0 es solo porque el rango inicia en 0, termina en la cantidad de estudiantes y se incrementa de 2 en 2.
+
+
