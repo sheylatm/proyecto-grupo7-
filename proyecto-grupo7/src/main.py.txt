@@ -1,1 +1,135 @@
-print("proyecto grupo 7")
+import random
+
+# ============================================================
+# DATOS
+# ============================================================
+#Asigneamos los datos de cada estudiante, con sus respectivas notas de los profesores y su autoevaluación
+estudiantes = ["Ana", "Luis", "Carla", "David", "Elena"]
+
+# [nota_profesor1, nota_profesor2, autoevaluacion]
+evaluaciones = {
+    "Ana": [85, 90, 88],
+    "Luis": [42, 45, 50],
+    "Carla": [78, 80, 79],
+    "David": [91, 70, 80],
+    "Elena": [88, 89, 90]
+}
+
+# ============================================================
+# FUNCIONES
+# ============================================================
+#Realizamos la función para asignar los pares de estudiantes, si hay un estudiante sin par, se le asigna "Sin par"
+def asignar_pares(lista):
+    pares = []
+    cantidad = len(lista)
+    #for para recorrer la lista de estudiantes de dos en dos y asignar los pares
+    for i in range(0, cantidad, 2):
+        if i + 1 < cantidad:
+            pares.append((lista[i], lista[i + 1]))
+        else:
+            pares.append((lista[i], "Sin par"))
+    
+    return pares
+#Mostraremos las fechas de entrega de las tareas y del proyecto
+def mostrar_fechas():
+    print(" * Tarea 1: 20/06/2026")
+    print(" * Tarea 2: 27/06/2026")
+    print(" * Proyecto: 10/07/2026")
+
+#Calcularemos la diferencia entre las notas de los profesores y la autoevaluación, para determinar si están de acuerdo o no. 
+# Si la diferencia es mayor al 20%, no están de acuerdo.
+def calcular_diferencia(n1, n2, n3):
+    # Sacar la nota más alta
+    if n1 >= n2 and n1 >= n3:
+        mayor = n1
+    elif n2 >= n1 and n2 >= n3:
+        mayor = n2
+    else:
+        mayor = n3
+    
+    # Sacar la nota más baja
+    if n1 <= n2 and n1 <= n3:
+        menor = n1
+    elif n2 <= n1 and n2 <= n3:
+        menor = n2
+    else:
+        menor = n3
+    
+    diferencia = ((mayor - menor) * 100) // mayor
+    return diferencia
+
+def estan_de_acuerdo(n1, n2, n3):
+    diferencia = calcular_diferencia(n1, n2, n3)
+    
+    if diferencia <= 20:
+        return "Están de acuerdo"
+    else:
+        return "No están de acuerdo"
+#Calcularemos la nota final del estudiante, tomando en cuenta que cada profesor cuenta 40% y la autoevaluación 20%
+def calcular_nota_final(n1, n2, n3):
+    # Los profesores cuentan 40% cada uno, autoevaluación 20%
+    nota = (n1 * 40 + n2 * 40 + n3 * 20) // 100
+    return nota
+
+# ============================================================
+# MENÚ
+# ============================================================
+#Utilizamos un menú para que el usuario pueda elegir entre las diferentes opciones del sistema de coordinación docente
+print("\n" + "=" * 45)
+print("SISTEMA DE COORDINACIÓN DOCENTE")
+print("=" * 45)
+print(" Grupo 7 - Lógica de Programación")
+print("=" * 45)
+#Utilizamos un bucle while para que el menú se muestre continuamente hasta que el usuario decida salir
+while True:
+    print("\n" + "-" * 35)
+    print(" 1 → Hacer parejas al azar")
+    print(" 2 → Ver fechas de entrega")
+    print(" 3 → Ver si los profesores están de acuerdo")
+    print(" 4 → Calcular nota final del estudiante")
+    print(" 5 → Salir")
+    print("-" * 35)
+    #Solicitamos al usuario que elija una opción del menú
+    opcion = input(" ➤ Elige: ")
+    #Utilizamos un match-case para ejecutar la opción elegida por el usuario donde cada case corresponde a una opción del menú
+    match opcion:
+        case "1":
+            print("\n HACIENDO PAREJAS...")
+            copia = estudiantes.copy()
+            random.shuffle(copia)
+            pares = asignar_pares(copia)
+            
+            print("\n PAREJAS:")
+            for p in pares:
+                print(f" {p[0]} ↔ {p[1]}")
+        
+        case "2":
+            print("\n FECHAS DE ENTREGA:")
+            mostrar_fechas()
+        
+        case "3":
+            print("\n VERIFICANDO...")
+            print(" (Máx 20% de diferencia para estar de acuerdo)")
+            print(" " + "-" * 35)
+            
+            for nombre in estudiantes:
+                notas = evaluaciones[nombre]
+                resultado = estan_de_acuerdo(notas[0], notas[1], notas[2])
+                print(f" {nombre}: {notas[0]}/{notas[1]}/{notas[2]} → {resultado}")
+        
+        case "4":
+            print("\n NOTA FINAL:")
+            print(" (Cada profesor 40% | Autoevaluación 20%)")
+            print(" " + "-" * 30)
+            
+            for nombre in estudiantes:
+                notas = evaluaciones[nombre]
+                nota_final = calcular_nota_final(notas[0], notas[1], notas[2])
+                print(f" {nombre}: {nota_final} puntos")
+        
+        case "5":
+            print("\n ¡Hasta luego!")
+            break
+        
+        case _:
+            print(" Opción no válida. Elige 1,2,3,4 o 5.")
