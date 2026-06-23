@@ -156,13 +156,42 @@ Semana 4 - Prototipo de Capa 1 y 2 sin LLM. Código que carga datos y ejecuta la
 Entre estás fechas nos dedicamos a agregar la capa 1 y 2 en nuestro código de automatización, luego de corregir nuestro error empezamos desde 0.
 CAPA 1: Se muestran los datos, se utilizó lista para agregar los nombres de cada estudiante, elegimos 5 estudiantes.
 También agregamos un diccionario para poner las calificaciones que se requieren de acuerdo a las indicaciones de nuestro proyecto, que son nota_profesor1, nota_profesor2, autoevaluacion.
+
 CAPA 2: Utilizamos def para crear nuestras funciones, creamos la línea de código def asignar_pares():
 Esto significa que la función recibe una lista de estudiantes como variables, en donde debajo se colocará:
 pares = [] 
 Que servirá para almacenar los pares de estudiantes.
+
 Debajo de esta sigue cantidaad = len(lista), nos ayudará a obtener la cantidad de estudiantes en nuestra lista.
 Procedemos con la función for i in range, esta función va ayudarnos a recorrer nuestra lista de estudiantes en dos en dos, de manera par.
 Entonces quedaría for i in range(0, cantidad, 2):
 0 es solo porque el rango inicia en 0, termina en la cantidad de estudiantes y se incrementa de 2 en 2.
+
+if i + 1 < cantidad:
+            pares.append((lista[i], lista[i + 1]))
+        else:
+            pares.append((lista[i], "Sin par"))
+Nos pregunta si existe un estudiante en la posición i + 1, i es la posición que va cambiando, i puede ser 1,2,3.. 
+Nos dice; Si i + 1 es.. significa la posición de al lado de por ejemplo Ana es Luis.
+Entonces agregamos pares.append, que nos agregará la pareja de la lista de pares, esta en nuestro código para guardar la pareja completa y el .append es el que agrega un elemento final de la lista.
+¿Por qué el sin par?
+Esta para que la persona no quede olvidada, nos indica que si no hay un compañero que asigne que es "Sin par".
+Entonces haremos que nos devuelva la lista utilizando:
+return pares
+Para que el menú pueda mostrar el resultado
+Ahora  mostraremos las fechas de entragas y del proyecto
+def mostrar_fechas():
+    print(" * Tarea 1: 20/06/2026")
+    print(" * Tarea 2: 27/06/2026")
+    print(" * Proyecto: 10/07/2026")
+Vamos a calcular la diferncia en porcentaje entre la nota más baja y alta, utilizando primero la función de:
+def calcular_diferencia(n1, n2, n3):
+    if n1 >= n2 and n1 >= n3:
+        mayor = n1
+    elif n2 >= n1 and n2 >= n3:
+        mayor = n2
+    else:
+        mayor = n3
+Nos dice si la nota1 es mayor a nota2 y nota1 es mayor a nota3 ento
 
 
